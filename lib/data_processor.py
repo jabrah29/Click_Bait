@@ -24,8 +24,9 @@ class DataProcessor(object):
 
 
   def test_with_data(self,test_data):
-    example_counts = self.count_vectorizer.transform(test_data)
-    predictions = self.classifier.predict(example_counts)
+    split_data = self.__split_to_list(test_data)
+    count_transformed_data = self.count_vectorizer.transform(split_data)
+    predictions = self.classifier.predict(count_transformed_data)
     return self.__process__predictions(test_data,predictions)
 
 
@@ -36,6 +37,9 @@ class DataProcessor(object):
     for i,prediction in enumerate(predictions):
       results.append(Data(test_data[0],prediction))
     return results
+
+  def __split_to_list(self, data):
+    return data.split(',')
 
   def __normalized__number_or_text(self, word):
     if word.isnumeric():

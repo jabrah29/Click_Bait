@@ -8,7 +8,7 @@ data_processor = DataProcessor(data)
 print('processing data..')
 
 data_processor.train_classifier()
-result = data_processor.test_with_data([text_input])
+result = data_processor.test_with_data(text_input)
 
 print('===============')
 for data in result:
