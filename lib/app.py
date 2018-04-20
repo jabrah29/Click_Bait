@@ -1,15 +1,20 @@
 from lib.data_reader import DataReader
 from lib.data_processor import DataProcessor
+from lib import BAIT_DATA_PATH
+class App:
 
-text_input = input("Enter Title: ")
-data = DataReader.read_data("/Users/jacobabraham/PycharmProjects/clickBait/data/bait_data.json")
-data_processor = DataProcessor(data)
+  def run(self):
+    text_input = input("Enter Title: ")
+    data = DataReader.read_data(BAIT_DATA_PATH)
+    data_processor = DataProcessor(data)
 
-print('processing data..')
+    data_processor.train_classifier()
+    result = data_processor.test_with_data(text_input)
 
-data_processor.train_classifier()
-result = data_processor.test_with_data(text_input)
+    print('===============')
+    for data in result:
+      print(data.sentence + ": " + str(data.is_click_bait))
 
-print('===============')
-for data in result:
-  print(data.sentence + ": " + str(data.is_click_bait))
+  def get_path(file_name):
+    fileDir = os.path.abspath('../data')
+    return os.path.join(fileDir, file_name)

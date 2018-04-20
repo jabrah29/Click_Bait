@@ -35,7 +35,7 @@ class DataProcessor(object):
   def __process__predictions(self, test_data,predictions):
     results = []
     for i,prediction in enumerate(predictions):
-      results.append(Data(test_data[0],prediction))
+      results.append(Data(test_data,prediction))
     return results
 
   def __split_to_list(self, data):

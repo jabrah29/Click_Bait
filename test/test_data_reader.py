@@ -1,10 +1,11 @@
 import unittest
 from lib.data_reader import DataReader
+from lib import TEST_BAIT_DATA_PATH
 
 
 class TestDataReader(unittest.TestCase):
 
-  CSV_PATH = "/Users/jacobabraham/PycharmProjects/clickBait/test_data/test_bait_data.json"
+
   def test_read_data(self):
-    data = DataReader.read_data(self.CSV_PATH)
+    data = DataReader.read_data(TEST_BAIT_DATA_PATH)
     self.assertEqual(2, data['article_title'].count())
