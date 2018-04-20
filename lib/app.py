@@ -15,6 +15,7 @@ class App:
     for data in result:
       print(data.sentence + ": " + str(data.is_click_bait))
 
-  def get_path(file_name):
-    fileDir = os.path.abspath('../data')
-    return os.path.join(fileDir, file_name)
+
+
+app = App()
+app.run()
