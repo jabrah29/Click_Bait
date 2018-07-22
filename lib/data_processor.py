@@ -14,12 +14,11 @@ class DataProcessor(object):
   def train_classifier(self):
     titles = self.data_frame['article_title']
     clickbait = self.data_frame['clickbait']
-    self.count_vectorizer = CountVectorizer()
-    count = self.count_vectorizer.fit_transform(titles.values)
+    fit_vectorized_data = self.__vectorized__data(titles)
 
     self.classifier = MultinomialNB()
     targets = clickbait.values
-    self.classifier.fit(count,targets)
+    self.classifier.fit(fit_vectorized_data,targets)
 
 
 
@@ -46,3 +45,7 @@ class DataProcessor(object):
       return '###'
     else:
       return word
+
+  def __vectorized__data(self, titles):
+    self.count_vectorizer = CountVectorizer()
+    return self.count_vectorizer.fit_transform(titles.values)
