@@ -33,7 +33,7 @@ class DataProcessor(object):
 
   def __process__predictions(self, test_data,predictions):
     results = []
-    for i,prediction in enumerate(predictions):
+    for prediction in enumerate(predictions):
       results.append(Data(test_data,prediction))
     return results
 
