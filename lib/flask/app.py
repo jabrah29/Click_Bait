@@ -8,11 +8,3 @@ class FlaskHandler(object):
 
   def add_resource(self, resource, route):
     self.api.add_resource(resource, route)
-
-
-
-
-
-class HelloWorld(Resource):
-  def get(self):
-    return {'hello': 'world'}
