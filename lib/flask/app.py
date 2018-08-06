@@ -1,16 +1,18 @@
 from flask import Flask
 from flask_restful import Resource, Api
 
-app = Flask(__name__)
-api = Api(app)
+class FlaskHandler(object):
+  def __init__(self):
+    self.app = Flask(__name__)
+    self.api = Api(self.app)
+
+  def add_resource(self, resource, route):
+    self.api.add_resource(resource, route)
+
+
+
 
 
 class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'test'}
-
-
-api.add_resource(HelloWorld, '/')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+  def get(self):
+    return {'hello': 'world'}

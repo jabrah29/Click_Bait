@@ -1,6 +1,7 @@
 import os
 
 
+
 def get_data_path(file_name):
   fileDir = os.path.abspath('../data')
   return os.path.join(fileDir, file_name)
