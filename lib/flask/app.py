@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -13,5 +13,6 @@ def get_titles():
 
 @app.route("/titles", methods=['POST'])
 def test_title():
-  print(request.get_json())
+  print(request.form['title'])
+  return '', 204
 
