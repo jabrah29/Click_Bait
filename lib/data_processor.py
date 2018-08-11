@@ -4,7 +4,6 @@ from lib.model_storage import ModelStorage
 from lib.data import Data
 
 
-
 class DataProcessor(object):
 
   pick = None

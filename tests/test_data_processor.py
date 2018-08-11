@@ -1,10 +1,11 @@
 import unittest
 import pandas as pd
 from lib.data import  Data
-from pandas.util.testing import assert_frame_equal
 from lib.data_processor import DataProcessor
 from lib.data_reader import DataReader
 from lib import BAIT_DATA_PATH,TEST_BAIT_DATA_PATH
+from unittest.mock import MagicMock
+
 
 class TestDataProcessor(unittest.TestCase):
 
@@ -16,7 +17,7 @@ class TestDataProcessor(unittest.TestCase):
 
   def test_train_classifier(self):
     self.data_processor.train_classifier()
-    self.assertTrue(self.data_processor.classifier is not None)
+    self.assertTrue(self.data_processor.bayes_storage is not None)
 
 
   def test_with_data(self):
