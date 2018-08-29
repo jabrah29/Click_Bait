@@ -1,4 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
+import json
+
 
 app = Flask(__name__)
 
@@ -6,13 +8,7 @@ mock_data = {
   'test':'hello'
 }
 
-@app.route("/titles")
-def get_titles():
-  return mock_data, 201
-
-
-@app.route("/titles", methods=['POST'])
+@app.route("/title", methods=['POST'])
 def test_title():
-  print(request.form['title'])
-  return '', 204
-
+  title = request.args['title']
+  return render_template('result.html', value=title)
